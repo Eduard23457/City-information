@@ -8,7 +8,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface CityMapper {
-
     City toEntity(CityRequestDto cityRequestDto);
 
     CityResponseDto toResponse(City city);

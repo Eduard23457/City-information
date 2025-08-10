@@ -21,7 +21,5 @@ public class CityServiceImpl implements CityService {
         cityRepository.save(city);
         CityResponseDto response = cityMapper.toResponse(city);
         return response;
-
-
     }
 }

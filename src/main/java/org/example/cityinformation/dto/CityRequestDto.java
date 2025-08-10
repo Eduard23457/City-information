@@ -13,4 +13,5 @@ public class CityRequestDto {
 
     private String name;
     private String country;
+
 }

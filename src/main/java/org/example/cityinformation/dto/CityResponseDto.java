@@ -11,4 +11,5 @@ public class CityResponseDto {
 
     private String name;
     private String country;
+
 }

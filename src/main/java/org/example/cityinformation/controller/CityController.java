@@ -21,6 +21,5 @@ public class CityController {
     public ResponseEntity<CityResponseDto> addCityInBd(@RequestBody CityRequestDto cityRequestDto) {
         CityResponseDto responseDto = cityService.addCity(cityRequestDto);
         return ResponseEntity.ok(responseDto);
-
     }
 }
