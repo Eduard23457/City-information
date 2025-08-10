@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: cityguide
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword123
+    ports:
+      - "5433:5432"  # Маппинг: хост:контейнер. Используем 5433 на хосте, чтобы не конфликтовать с 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
