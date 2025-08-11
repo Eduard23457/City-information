@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CityResponseDto {
-
+    private Long id;
     private String name;
     private String country;
 
