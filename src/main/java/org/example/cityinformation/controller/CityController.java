@@ -24,15 +24,26 @@ public class CityController {
     }
 
     @GetMapping("/all/city")
-    public ResponseEntity<List<CityResponseDto>>findAll(){
+    public ResponseEntity<List<CityResponseDto>> findAll() {
         List<CityResponseDto> all = cityService.findAll();
         return ResponseEntity.ok(all);
     }
 
 
     @GetMapping("/city")
-    public ResponseEntity<CityResponseDto>findById(@RequestParam Long id){
+    public ResponseEntity<CityResponseDto> findById(@RequestParam Long id) {
         CityResponseDto cityResponseDto = cityService.findById(id);
         return ResponseEntity.ok(cityResponseDto);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<CityResponseDto> updateCity(@RequestParam Long id, @RequestBody CityRequestDto cityRequestDto) {
+        CityResponseDto update = cityService.update(id, cityRequestDto);
+        return ResponseEntity.ok(update);
+    }
+
+    public ResponseEntity<Void> deleteCity(@RequestParam Long id) {
+        cityService.deleteCity(id);
+        return ResponseEntity.noContent().build();
     }
 }

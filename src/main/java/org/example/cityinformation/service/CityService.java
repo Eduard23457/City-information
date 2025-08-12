@@ -12,4 +12,8 @@ public interface CityService {
     List<CityResponseDto>findAll();
 
     CityResponseDto findById(Long id);
+
+    CityResponseDto update(Long id, CityRequestDto cityRequestDto);
+
+    void deleteCity(Long id);
 }

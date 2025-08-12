@@ -40,7 +40,22 @@ public class CityServiceImpl implements CityService {
         City city = cityRepository.findById(id).orElseThrow(() -> new NoSuchElementException("City with id " + id + " not found"));
         CityResponseDto response = cityMapper.toResponse(city);
         return response;
+    }
 
+    @Override
+    public CityResponseDto update(Long id, CityRequestDto cityRequestDto) {
+        City city = cityRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("City not found with id" + id));
+
+        cityMapper.updateEntityFromDto(cityRequestDto, city);
+        return cityMapper.toResponse(cityRepository.save(city));
+    }
+
+    @Override
+    public void deleteCity(Long id) {
+        City city = cityRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("City not found with id " + id));
+        cityRepository.deleteById(id);
 
     }
 
